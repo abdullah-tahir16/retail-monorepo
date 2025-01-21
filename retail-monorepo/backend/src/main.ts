@@ -3,9 +3,10 @@ import dotenv from 'dotenv';
 import cors from 'cors';
 import morgan from 'morgan';
 import productRoutes from './routes/productRoutes';
+import orderRoutes from './routes/orderRoutes';
+import { notFound, errorHandler } from './middleware/errorMiddleware';
 import connectDB from './mongoose/db';
-import { errorHandler, notFound } from './middleware/errorMiddleware';
-
+import authRoutes from './routes/authRoutes';
 
 dotenv.config();
 connectDB();
@@ -19,8 +20,10 @@ app.use(morgan('dev'));
 
 // Routes
 app.use('/api/products', productRoutes);
+app.use('/api/auth', authRoutes);
+app.use('/api/orders', orderRoutes);
 
-// Error Handling Middleware (Must be after routes)
+// Error Handling Middleware
 app.use(notFound);
 app.use(errorHandler);
 

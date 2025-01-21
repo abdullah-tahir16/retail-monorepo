@@ -6,16 +6,17 @@ import {
   updateProduct,
   deleteProduct,
 } from '../controllers/productController';
+import { protect, admin } from '../middleware/authMiddleware';
 
 const router = express.Router();
 
-// Public Routes
+// Public Routes (No authentication required)
 router.get('/', getAllProducts);
 router.get('/:id', getProductById);
 
-// Protected Routes (Require Authentication - Add Middleware)
-router.post('/', createProduct);
-router.put('/:id', updateProduct);
-router.delete('/:id', deleteProduct);
+// Admin-Only Routes (Requires authentication)
+router.post('/', protect, admin, createProduct);
+router.put('/:id', protect, admin, updateProduct);
+router.delete('/:id', protect, admin, deleteProduct);
 
 export default router;
