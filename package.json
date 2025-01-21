@@ -1,0 +1,6 @@
+{
+  "devDependencies": {
+    "@nx/node": "^20.3.2",
+    "@nx/react": "^20.3.2"
+  }
+}

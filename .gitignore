@@ -128,3 +128,48 @@ dist
 .yarn/build-state.yml
 .yarn/install-state.gz
 .pnp.*
+
+
+# Ignore Node modules
+node_modules/
+
+# Nx specific cache
+.nx/
+dist/
+tmp/
+cache/
+
+# Editor & OS files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.log
+*.swp
+
+# Dependency locks (if using npm or yarn)
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# Environment variables
+.env
+.env.local
+.env.development
+.env.production
+.env.test
+
+# Build outputs
+out/
+coverage/
+jest/
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+nx-debug.log*
+
+# TypeScript temporary files
+*.tsbuildinfo
